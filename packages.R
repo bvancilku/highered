@@ -22,3 +22,5 @@ library(stringr)
 library(tibble)
 library(tidyr)
 library(visNetwork)
+
+conflicted::conflict_prefer("filter", "dplyr", "stats")

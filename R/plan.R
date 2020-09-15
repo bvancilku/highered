@@ -22,6 +22,7 @@ the_plan <- drake_plan(
   # IPEDS
   ipeds_efte = get_ipeds_efte(year, level_of_study),
   ipeds_enrollment_headcount = get_ipeds_enrollment_headcount(year, level_of_study),
-  ipeds_joined = get_ipeds_joined(ipeds_efte, ipeds_enrollment_headcount),
+  ipeds_fall_retention = get_ipeds_fall_retention(year),
+  ipeds_joined = get_ipeds_joined(ipeds_efte, ipeds_enrollment_headcount, ipeds_fall_retention),
   ipeds_joined_test = check_ipeds_joined_test(ipeds_joined)
 )
