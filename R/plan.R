@@ -6,6 +6,7 @@
 the_plan <- drake_plan(
   year = 2005:2018,
   opeid = "00194800",
+  level_of_study = "undergraduate",
   # FSA
   fsa_campus_based_volume = get_fsa_campus_based_volume(year, opeid),
   fsa_grants = get_fsa_grants(year, opeid),
@@ -17,5 +18,10 @@ the_plan <- drake_plan(
   ),
   fsa_recipients_plot = get_fsa_recipients_plot(
     fsa_combined
-  )
+  ),
+  # IPEDS
+  ipeds_efte = get_ipeds_efte(year, level_of_study),
+  ipeds_enrollment_headcount = get_ipeds_enrollment_headcount(year, level_of_study),
+  ipeds_joined = get_ipeds_joined(ipeds_efte, ipeds_enrollment_headcount),
+  ipeds_joined_test = check_ipeds_joined_test(ipeds_joined)
 )
